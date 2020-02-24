@@ -21,8 +21,10 @@ def start_game(tries, min_size, max_size):
     true_number = number_generator(min_size, max_size)
     
     for i in range(tries):
-        guess_number = input('Enter your guess %d\n', i+1)
+        guess_number = int(input('Enter your guess:'))
         guess_compare(guess_number, true_number, min_size, max_size)
+    
+    print('SORRY. GAME OVER. The number was:    %d' % true_number)
 
 
 if __name__ == "__main__":
