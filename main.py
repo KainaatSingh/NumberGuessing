@@ -1,6 +1,8 @@
 import random
 import sys
 from argparse import ArgumentParser
+import tkinter
+
 
 def number_generator(min_size, max_size):
     true_number = random.randint(min_size, max_size)
@@ -26,17 +28,19 @@ def start_game(tries, min_size, max_size):
     
     print('SORRY. GAME OVER. The number was:    %d' % true_number)
 
-
-if __name__ == "__main__":
-
+def main():
     parser = ArgumentParser()
     parser.add_argument('-t', action="store", dest="tries", default=3, help="Define the number of guesses you want", type=int)
     parser.add_argument('-min', action="store", dest="min_size", default=0, help="Define the minimum of the number", type=int)
     parser.add_argument('-max', action="store", dest="max_size", default=sys.maxsize, help="Define the minimum of the number", type=int)
 
     args = parser.parse_args()
-
     start_game(args.tries, args.min_size, args.max_size)
 
-
+if __name__ == "__main__":
+    root = tkinter.Tk()
+    title = tkinter.Label(root, text="Welcome to Guessing Game!")
+    title.pack()
+    main()   
+    root.mainloop()
 
